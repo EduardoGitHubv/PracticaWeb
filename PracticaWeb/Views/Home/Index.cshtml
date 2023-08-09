@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Auto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5>Entrada de Autos</h5>
+    </div>
+    <div class="card-body">
+        <a class="btn btn-success btn-sm" asp-action="AltaAutos" asp-controller="Home">Nuevo Auto</a>
+        <hr />
+        <div class="">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Número de placa</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var autos in Model){
+                        <tr>
+                            <td>@autos.NoPlaca</td>
+                            <td><a href="/Home/EntradaAutos?id=@autos.idAuto" class="btn btn-primary btn-sm">Entrada</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

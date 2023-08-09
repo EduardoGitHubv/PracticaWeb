@@ -1,0 +1,29 @@
+﻿@model PracticaWeb.Models.Auto;
+@{
+    ViewData["Title"] = "Alta auto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Alta Auto</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <form asp-action="AltaAutos" asp-asp-controller="Home" method="post">
+            <div class="mb-2">
+                <label class="form-control" asp-for="NoPlaca" >Número de placa</label>
+                <input class="form-control form-control-sm" asp-for="NoPlaca" type="text" required name="NoPlaca" />
+            </div>
+            <div class="mb-2">
+                 <button class="btn-primary btn-sm w-25" type="submit">Alta</button>
+                <a class="btn btn-success btn-sm" asp-action="Index" asp-controller="Home">Volver</a>
+            </div>
+            @if (ViewData["Mensaje"] != null)
+            {
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert">
+                        @ViewData["Mensaje"]
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</di>

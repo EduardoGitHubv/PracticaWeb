@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Salidas>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5>Salida de Autos</h5>
+    </div>
+    <div class="card-body">
+        <div class="">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Número de placa</th>
+                        <th>Fecha entrada</th>
+                        <th>Hora entrada</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var salidas in Model)
+                    {
+                        <tr>
+                            <td>@salidas.NoPlaca</td>
+                            <td><a href="/Home/EntradaAutos?id=@salidas.idServicio" class="btn btn-primary btn-sm">Salida</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
